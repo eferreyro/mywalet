@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title> Sistema Compra - Venta | www.eyterhiguera.com</title>
+  <title> Sistema Compra - Venta | efereryro.com</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -70,7 +70,7 @@
              
              <!-- <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
               <i class="fa fa-user" aria-hidden="true"></i>
-              <span class="hidden-xs">Eyter Higuera</span>
+              <span class="hidden-xs">Emmanuel Ferreyro</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -80,7 +80,7 @@
                  <i class="fa fa-user" aria-hidden="true"></i>
 
                 <p>
-                  Eyter Higuera - Web Developer
+                    Emmanuel Ferreyro - Web Developer
                   <small>Administrador desde Noviembre 2017</small>
                 </p>
               </li>
