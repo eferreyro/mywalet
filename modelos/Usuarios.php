@@ -27,7 +27,7 @@
              $conectar=parent::conexion();
              parent::set_names();
 
-            //Funcion SQL para registrar usuarios
+            //Metodo SQL para registrar usuarios
              $sql="INSERT INTO usuarios 
              VALUES(null,?,?,?,?,?,?,?,?,?,?,now(),?);";
 
@@ -44,7 +44,7 @@
              $sql->bindValue(9, $_POST["password1"]);
              $sql->bindValue(10, $_POST["password2"]);
              $sql->bindValue(11, $_POST["estado"]);
-             $sql->execute();
+             $sql->execute(); //Si no ponemos esto no se ejecuta la consulta de registro
    	    }
 
         //metodo para editar usuario
