@@ -16,7 +16,7 @@
    	    	$sql="select * from usuarios";
 
    	    	$sql=$conectar->prepare($sql);
-   	    	$sql->execute()
+   	    	$sql->execute();
 
    	    	return $resultado=$sql->fetchAll();
    	    }
@@ -27,9 +27,8 @@
              $conectar=parent::conexion();
              parent::set_names();
 
-            //Metodo SQL para registrar usuarios
-             $sql="INSERT INTO usuarios 
-             VALUES(null,?,?,?,?,?,?,?,?,?,?,now(),?);";
+             $sql="insert into usuarios 
+             values(null,?,?,?,?,?,?,?,?,?,?,now(),?);";
 
              $sql=$conectar->prepare($sql);
 
@@ -44,7 +43,7 @@
              $sql->bindValue(9, $_POST["password1"]);
              $sql->bindValue(10, $_POST["password2"]);
              $sql->bindValue(11, $_POST["estado"]);
-             $sql->execute(); //Si no ponemos esto no se ejecuta la consulta de registro
+             $sql->execute();
    	    }
 
         //metodo para editar usuario
@@ -53,7 +52,7 @@
              $conectar=parent::conexion();
              parent::set_names();
 
-             $sql="UPDATE usuarios SET 
+             $sql="update usuarios set 
 
               nombres=?,
               apellidos=?,
@@ -67,7 +66,7 @@
               password2=?,
               estado 
 
-              WHERE 
+              where 
               id_usuario=?
 
 
@@ -98,7 +97,7 @@
           $conectar=parent::conexion();
           parent::set_names();
 
-          $sql="SELECT * FROM usuarios WHERE id_usuario=?";
+          $sql="select * from usuarios where id_usuario=?";
 
           $sql=$conectar->prepare($sql);
 
@@ -127,11 +126,11 @@
    	    		$estado=0;
    	    	}
 
-   	    	$sql="UPDATE usuarios SET 
+   	    	$sql="update usuarios set 
             
             estado=?
 
-            WHERE 
+            where 
             id_usuario=?
 
 
@@ -155,7 +154,7 @@
           $conectar=parent::conexion();
           parent::set_names();
 
-          $sql="SELECT * FROM usuarios WHERE cedula=? OR correo=?";
+          $sql="select * from usuarios where cedula=? or correo=?";
 
           $sql=$conectar->prepare($sql);
 

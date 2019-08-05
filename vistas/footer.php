@@ -215,7 +215,18 @@
 <script src="../public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 <!-- DataTables -->
-<script src="../public/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+
+<!--<script src="../public/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>-->
+
+   <script src="../public/datatables/jquery.dataTables.min.js"></script>
+    <script src="../public/datatables/dataTables.buttons.min.js"></script>
+    <script src="../public/datatables/buttons.html5.min.js"></script>
+    <script src="../public/datatables/buttons.colVis.min.js"></script>
+    <script src="../public/datatables/jszip.min.js"></script>
+    <script src="../public/datatables/pdfmake.min.js"></script>
+    <script src="../public/datatables/vfs_fonts.js"></script>
+
+
 
 <!-- Morris.js charts -->
 <script src="../public/bower_components/raphael/raphael.min.js"></script>
@@ -244,7 +255,9 @@
 <script src="../public/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../public/dist/js/demo.js"></script>
-<!-- LIBRERIAS DEL MENSAJE MODAL BOTBOX -->
-<script src="js/botbox.min.js"></script>
+
+  <!--LIBRERIA DE MENSAJE MODAL-->
+<script src="js/bootbox.min.js"></script>
+
 </body>
 </html>

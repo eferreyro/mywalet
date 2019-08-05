@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title> Sistema Compra - Venta | efereryro.com</title>
+  <title> Sistema Compra - Venta | www.eyterhiguera.com</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -15,7 +15,13 @@
   <link rel="stylesheet" href="../public/bower_components/Ionicons/css/ionicons.min.css">
 
   <!-- DataTables -->
-  <link rel="stylesheet" href="../public/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
+  <!--<link rel="stylesheet" href="../public/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">-->
+
+  <link rel="stylesheet" href="../public/datatables/jquery.dataTables.min.css">
+  <link href="../public/datatables/buttons.dataTables.min.css" rel="stylesheet"/>
+    <link href="../public/datatables/responsive.dataTables.min.css" rel="stylesheet"/>
+
 
   <!-- Theme style -->
   <link rel="stylesheet" href="../public/dist/css/AdminLTE.min.css">
@@ -70,7 +76,7 @@
              
              <!-- <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
               <i class="fa fa-user" aria-hidden="true"></i>
-              <span class="hidden-xs">Emmanuel Ferreyro</span>
+              <span class="hidden-xs">Eyter Higuera</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -80,7 +86,7 @@
                  <i class="fa fa-user" aria-hidden="true"></i>
 
                 <p>
-                    Emmanuel Ferreyro - Web Developer
+                  Eyter Higuera - Web Developer
                   <small>Administrador desde Noviembre 2017</small>
                 </p>
               </li>
