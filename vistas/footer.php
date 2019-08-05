@@ -244,5 +244,7 @@
 <script src="../public/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../public/dist/js/demo.js"></script>
+<!-- LIBRERIAS DEL MENSAJE MODAL BOTBOX -->
+<script src="js/botbox.min.js"></script>
 </body>
 </html>
