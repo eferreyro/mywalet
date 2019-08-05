@@ -67,7 +67,7 @@ var tabla;
 					}
 				},
 
-	     "bDestroy": true,
+	    "bDestroy": true,
 		"responsive": true,
 		"bInfo":true,
 		"iDisplayLength": 10,//Por cada 10 registros hace una paginación

@@ -126,11 +126,11 @@
    	    		$estado=0;
    	    	}
 
-   	    	$sql="update usuarios set 
+   	    	$sql="UPDATE usuarios SET 
             
             estado=?
 
-            where 
+            WHERE 
             id_usuario=?
 
 
@@ -139,8 +139,8 @@
    	    	$sql=$conectar->prepare($sql);
 
 
-   	    	$sql->bindValue(1,$id_usuario);
-   	    	$sql->bindValue(2,$estado);
+   	    	$sql->bindValue(1,$estado);
+   	    	$sql->bindValue(2,$id_usuario);
    	    	$sql->execute();
 
 
