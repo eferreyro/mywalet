@@ -1,9 +1,9 @@
 
  <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+      <b>Version</b> 2.0.14
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2014-2019 <a href="http://eferreyro.com">eferreyro</a>.</strong> All rights
     reserved.
   </footer>
 
