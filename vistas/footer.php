@@ -1,9 +1,9 @@
 
  <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.0.14
+      <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://eferreyro.com">eferreyro</a>.</strong> All rights
+    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -231,6 +231,8 @@
 <!-- Morris.js charts -->
 <script src="../public/bower_components/raphael/raphael.min.js"></script>
 <script src="../public/bower_components/morris.js/morris.min.js"></script>
+
+
 <!-- Sparkline -->
 <script src="../public/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
@@ -251,6 +253,7 @@
 <script src="../public/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../public/dist/js/adminlte.min.js"></script>
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!--<script src="../public/dist/js/pages/dashboard.js"></script>-->
 <!-- AdminLTE for demo purposes -->

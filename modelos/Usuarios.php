@@ -30,7 +30,7 @@
 
                 }
 
-                 else if(!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,12}$/", $password)) {
+                 else if(!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){12,15}$/", $password)) {
 
               header("Location:".Conectar::ruta()."vistas/index.php?m=1");
               exit();
@@ -39,7 +39,7 @@
 
              else {
 
-                  $sql= "SELECT * FROM usuarios WHERE correo=? AND password=? AND estado=?";
+                  $sql= "select * from usuarios where correo=? and password=? and estado=?";
 
                   $sql=$conectar->prepare($sql);
 

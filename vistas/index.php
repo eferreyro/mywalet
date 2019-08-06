@@ -1,19 +1,28 @@
-
 <?php
-require_once("../config/conexion.php");
-  if(isset($_POST["enviar"]) and $_POST["enviar"]=="si"){
-    require_once("../modelos/Usuarios.php");
-    $usuario = new Usuarios(); //Nueva instancia de Usuarios
-    $usuario->login(); //Llamamos al metodo de Usuarios.php llamado login
-  }
+
+ require_once("../config/conexion.php");
+
+     
+
+     if(isset($_POST["enviar"]) and $_POST["enviar"]=="si"){
+
+       require_once("../modelos/Usuarios.php");
+
+       $usuario = new Usuarios();
+
+       $usuario->login();
+
+   }
+
 ?>
+
 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
+  <title>Proyecto</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -52,46 +61,46 @@ require_once("../config/conexion.php");
          <div class="col-lg-12">
         
         <div class="box-body">
-        <?php
+            
+            <?php
 
 
-if(isset($_GET["m"])) {
-   
-  switch($_GET["m"]){
+            if(isset($_GET["m"])) {
+               
+           switch($_GET["m"]){
 
 
-    case "1";
-    ?>
+               case "1";
+               ?>
 
-    <div class="alert alert-danger alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <h4><i class="icon fa fa-ban"></i> El correo y/o password es incorrecto o no tienes permiso!</h4>
-         
-    </div>
+               <div class="alert alert-danger alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <h4><i class="icon fa fa-ban"></i> El correo y/o password es incorrecto o no tienes permiso!</h4>
+                     
+                </div>
 
-    <?php
-    break;
-
-
-    case "2";
-    ?>
-        <div class="alert alert-danger alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <h4><i class="icon fa fa-ban"></i> Los campos no pueden estar vacios</h4>
-         
-    </div>
-    <?php
-    break;
+                <?php
+                break;
 
 
+                case "2";
+                ?>
+                    <div class="alert alert-danger alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <h4><i class="icon fa fa-ban"></i> Los campos estan vacios</h4>
+                     
+                </div>
+                <?php
+                break;
 
- }
-
-}
 
 
-?>  
-          
+             }
+
+         }
+
+
+            ?>
 
              
         </div>

@@ -67,7 +67,7 @@ var tabla;
 					}
 				},
 
-	    "bDestroy": true,
+	     "bDestroy": true,
 		"responsive": true,
 		"bInfo":true,
 		"iDisplayLength": 10,//Por cada 10 registros hace una paginación
@@ -180,7 +180,9 @@ var tabla;
 				    processData: false,
 
 				    success: function(datos){
-						//console.log(datos); //Buscando el error de AJAX a la hora de editar, consulta SQL
+
+				    	console.log(datos);
+
 				    	$('#usuario_form')[0].reset();
 						$('#usuarioModal').modal('hide');
 
