@@ -180,7 +180,7 @@ var tabla;
 				    processData: false,
 
 				    success: function(datos){
-
+						//console.log(datos); //Buscando el error de AJAX a la hora de editar, consulta SQL
 				    	$('#usuario_form')[0].reset();
 						$('#usuarioModal').modal('hide');
 

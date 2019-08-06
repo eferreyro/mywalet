@@ -8,6 +8,8 @@
       <div class="content-wrapper">        
         <!-- Main content -->
         <section class="content">
+          <div id="resultados_ajax"></div><!--Cuando guardamos o editamos recibimos los datos por medio de Ajax-->
+          <h2>Listado de usuarios</h2>
             <div class="row">
               <div class="col-md-12">
                   <div class="box">
