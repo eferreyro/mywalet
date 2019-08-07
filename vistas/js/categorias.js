@@ -48,7 +48,7 @@ function listar()
 	    buttons: [		          
 		            'copyHtml5',
 		            'excelHtml5',
-		            'csvHtml5',
+		            //'csvHtml5',
 		            'pdf'
 		        ],
 		"ajax":
