@@ -44,8 +44,8 @@
            $conectar= parent::conexion();
            parent::set_names();
 
-           $sql="insert into categoria
-           values(null,?,?,?);";
+           $sql="INSERT INTO categoria
+           VALUES(null,?,?,?);";
 
            $sql=$conectar->prepare($sql);
 
@@ -63,12 +63,12 @@
         	$conectar=parent::conexion();
         	parent::set_names();
 
-        	$sql="update categoria set 
+        	$sql="UPDATE categoria SET 
 
             categoria=?,
             estado=?,
             id_usuario=?
-            where 
+            WHERE 
             id_categoria=?
 
         	";
@@ -106,10 +106,10 @@
         	 	 $estado=0;
         	 }
 
-        	 $sql="update categoria set 
+        	 $sql="UPDATE categoria SET 
               
               estado=?
-              where 
+              WHERE 
               id_categoria=?
 
         	 ";
@@ -128,7 +128,7 @@
 
            $conectar=parent::conexion();
 
-          $sql="select * from categoria where categoria=?";
+          $sql="SELECT * FROM categoria WHERE categoria=?";
 
            //echo $sql; exit();
 
