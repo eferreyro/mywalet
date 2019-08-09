@@ -186,7 +186,7 @@
 
        
             
-          $sql="update producto set 
+          $sql="UPDATE producto SET 
                  id_categoria=?,
                  producto=?,
                  presentacion=?,
@@ -198,7 +198,7 @@
                  estado=?,
                  imagen=?,
                  fecha_vencimiento=?
-                 where 
+                 WHERE 
                  id_producto=?
           ";
 

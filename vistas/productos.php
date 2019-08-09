@@ -171,8 +171,11 @@
                   
                      <select class="selectpicker form-control" id="unidad" name="unidad" required>
                       <option value="">-- Seleccione unidad --</option>
-                      <option value="kilo">kilo</option>
-                      <option value="Gramo">Gramo</option>
+                      <option value="kilo">Kg</option>
+                      <option value="Gramo">Gr</option>
+                      <option value="Onza">Oz</option>
+                      <option value="Litro">Lt</option>
+                      <option value="mililitro">Ml</option>
 
                     </select>
 
@@ -190,6 +193,8 @@
                       <option value="">-- Seleccione moneda --</option>
                       <option value="USD$">USD$</option>
                       <option value="EUR">EUR€</option>
+                      <option value="ARS">ARS$</option>
+                      <option value="MEX">MEX$</option>
 
                     </select>
 
