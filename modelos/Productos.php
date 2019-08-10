@@ -197,11 +197,13 @@
                  stock=?,
                  estado=?,
                  imagen=?,
-                 fecha_vencimiento=?
+                 fecha_vencimiento=?,
+                 id_usuario=?
+
                  WHERE 
                  id_producto=?
           ";
-
+          //Enviamos los parametros a la consulta SQL
           $sql=$conectar->prepare($sql);
 
           $sql->bindValue(1, $_POST["categoria"]);
@@ -215,7 +217,9 @@
           $sql->bindValue(9, $_POST["estado"]);
           $sql->bindValue(10, $imagen);
           $sql->bindValue(11, $fecha);
-          $sql->bindValue(12, $_POST["id_producto"]);
+          $sql->bindValue(12, $_POST["id_usuario"]);
+          $sql->bindValue(13, $_POST["id_producto"]);
+
           $sql->execute();
 
 

@@ -217,7 +217,7 @@
                   <label for="" class="col-lg-1 control-label">Stock</label>
 
                   <div class="col-lg-9 col-lg-offset-1">
-                    <input type="text" class="form-control" id="stock" name="stock"  disabled>
+                    <input type="text" class="form-control" id="stock" name="stock" placeholder="Stock incrementa cuando registramos compra" disabled>
                   </div>
               </div>
 
