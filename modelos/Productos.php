@@ -269,7 +269,74 @@
               $sql->execute();
               return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
         }
+        //editar estado del producto por categoria
 
+        public function editar_estado_producto_por_categoria($id_categoria,$estado){
+
+          $conectar=parent::conexion();
+          parent::set_names();
+                
+         //si estado es igual a 0 entonces lo cambia a 1
+          $estado = 0;
+          //el parametro est se envia por via ajax, viene del $est:est
+          if($_POST["est"] == 0){
+            $estado = 1;
+          }
+    
+    
+          $sql="UPDATE producto SET 
+                
+                estado=?
+                WHERE 
+                id_categoria=?
+                  ";
+    
+                $sql=$conectar->prepare($sql);
+    
+                $sql->bindValue(1, $estado);
+                $sql->bindValue(2, $id_categoria);
+                $sql->execute();
+    
+                
+        }
+    
+    
+      //editar estado de la categoria por producto
+    
+      public function editar_estado_categoria_por_producto($id_categoria,$estado){
+      $conectar=parent::conexion();
+      parent::set_names();
+              
+    
+      //si es inactivo entonces la categoria pasa a activo
+      if($_POST["est"] == 0){
+    
+    
+    
+                $sql="UPDATE categoria SET 
+                    
+                    estado=?
+                    WHERE 
+                    id_categoria=?
+                      ";
+    
+                    $sql=$conectar->prepare($sql);
+    
+                    $sql->bindValue(1, 1);
+                    $sql->bindValue(2, $id_categoria);
+                    $sql->execute();
+    
+                   
+    
+               }
+    
+              
+        }
+    
+    
+    
+         
+       
 
    	
    }

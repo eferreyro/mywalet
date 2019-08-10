@@ -192,9 +192,9 @@
                     <select class="selectpicker form-control" id="moneda" name="moneda" required>
                       <option value="">-- Seleccione moneda --</option>
                       <option value="USD$">USD$</option>
-                      <option value="EUR">EUR€</option>
-                      <option value="ARS">ARS$</option>
-                      <option value="MEX">MEX$</option>
+                      <option value="EUR€">EUR€</option>
+                      <option value="ARS$">ARS$</option>
+                      <option value="MEX$">MEX$</option>
 
                     </select>
 
