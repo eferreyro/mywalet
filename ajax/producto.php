@@ -205,7 +205,8 @@
               //edita el estado del producto
 		      $productos->editar_estado($_POST["id_producto"],$_POST["est"]);
 		
-		     
+			 //Editar el estado en la categoria de producto
+			 $productos->editar_estado_categoria_por_producto($_POST["id_categoria"],$_POST["est"]);
 	        } 
 
      break;

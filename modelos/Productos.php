@@ -13,9 +13,9 @@
 
            $conectar= parent::conexion();
        
-          $sql= "SELECT p.id_producto,p.id_categoria,p.producto,p.presentacion,p.unidad, p.moneda, p.precio_compra, p.precio_venta, p.stock, p.estado, p.imagen, p.fecha_vencimiento AS fecha_vencimiento,c.id_categoria, c.categoria AS categoria
+          $sql= "select p.id_producto,p.id_categoria,p.producto,p.presentacion,p.unidad, p.moneda, p.precio_compra, p.precio_venta, p.stock, p.estado, p.imagen, p.fecha_vencimiento as fecha_vencimiento,c.id_categoria, c.categoria as categoria
            
-           FROM producto p 
+           from producto p 
               
               INNER JOIN categoria c ON p.id_categoria=c.id_categoria
              
@@ -91,8 +91,8 @@
               $fecha = date("Y-m-d",strtotime($date_inicial));
 
 
-            $sql="INSERT INTO producto
-            VALUES(null,?,?,?,?,?,?,?,?,?,?,?,?);";
+            $sql="insert into producto
+            values(null,?,?,?,?,?,?,?,?,?,?,?,?);";
 
 
             $sql=$conectar->prepare($sql);
@@ -123,7 +123,7 @@
 
           //$output = array();
 
-            $sql="SELECT * FROM producto WHERE id_producto=?";
+            $sql="select * from producto where id_producto=?";
 
             $sql=$conectar->prepare($sql);
 
@@ -186,7 +186,7 @@
 
        
             
-          $sql="UPDATE producto SET 
+          $sql="update producto set 
                  id_categoria=?,
                  producto=?,
                  presentacion=?,
@@ -197,13 +197,11 @@
                  stock=?,
                  estado=?,
                  imagen=?,
-                 fecha_vencimiento=?,
-                 id_usuario=?
-
-                 WHERE 
+                 fecha_vencimiento=?
+                 where 
                  id_producto=?
           ";
-          //Enviamos los parametros a la consulta SQL
+
           $sql=$conectar->prepare($sql);
 
           $sql->bindValue(1, $_POST["categoria"]);
@@ -217,9 +215,7 @@
           $sql->bindValue(9, $_POST["estado"]);
           $sql->bindValue(10, $imagen);
           $sql->bindValue(11, $fecha);
-          $sql->bindValue(12, $_POST["id_usuario"]);
-          $sql->bindValue(13, $_POST["id_producto"]);
-
+          $sql->bindValue(12, $_POST["id_producto"]);
           $sql->execute();
 
 
@@ -240,10 +236,10 @@
               }
 
 
-              $sql="UPDATE producto SET 
+              $sql="update producto set 
                     
                     estado=?
-                    WHERE 
+                    where 
                     id_producto=?
                       ";
 
@@ -261,7 +257,7 @@
 
               $conectar=parent::conexion();
 
-              $sql= "SELECT * FROM producto WHERE producto=?";
+              $sql= "select * from producto where producto=?";
 
               $sql=$conectar->prepare($sql);
 
@@ -269,74 +265,74 @@
               $sql->execute();
               return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
         }
+
+
         //editar estado del producto por categoria
 
-        public function editar_estado_producto_por_categoria($id_categoria,$estado){
+    public function editar_estado_producto_por_categoria($id_categoria,$estado){
+
+      $conectar=parent::conexion();
+      parent::set_names();
+            
+            //si estado es igual a 0 entonces lo cambia a 1
+      $estado = 0;
+      //el parametro est se envia por via ajax, viene del $est:est
+      if($_POST["est"] == 0){
+        $estado = 1;
+      }
+
+
+      $sql="update producto set 
+            
+            estado=?
+            where 
+            id_categoria=?
+              ";
+
+            $sql=$conectar->prepare($sql);
+
+            $sql->bindValue(1, $estado);
+            $sql->bindValue(2, $id_categoria);
+            $sql->execute();
+
+            
+    }
+
+
+       //editar estado de la categoria por producto
+
+        public function editar_estado_categoria_por_producto($id_categoria,$estado){
 
           $conectar=parent::conexion();
           parent::set_names();
-                
-         //si estado es igual a 0 entonces lo cambia a 1
-          $estado = 0;
-          //el parametro est se envia por via ajax, viene del $est:est
+          
+
+             //si es inactivo entonces la categoria pasa a activo
           if($_POST["est"] == 0){
-            $estado = 1;
-          }
-    
-    
-          $sql="UPDATE producto SET 
+
+
+
+            $sql="update categoria set 
                 
                 estado=?
-                WHERE 
+                where 
                 id_categoria=?
                   ";
-    
+
                 $sql=$conectar->prepare($sql);
-    
-                $sql->bindValue(1, $estado);
+
+                $sql->bindValue(1, 1);
                 $sql->bindValue(2, $id_categoria);
                 $sql->execute();
-    
-                
-        }
-    
-    
-      //editar estado de la categoria por producto
-    
-      public function editar_estado_categoria_por_producto($id_categoria,$estado){
-      $conectar=parent::conexion();
-      parent::set_names();
-              
-    
-      //si es inactivo entonces la categoria pasa a activo
-      if($_POST["est"] == 0){
-    
-    
-    
-                $sql="UPDATE categoria SET 
-                    
-                    estado=?
-                    WHERE 
-                    id_categoria=?
-                      ";
-    
-                    $sql=$conectar->prepare($sql);
-    
-                    $sql->bindValue(1, 1);
-                    $sql->bindValue(2, $id_categoria);
-                    $sql->execute();
-    
-                   
-    
-               }
-    
-              
-        }
-    
-    
-    
-         
-       
+
+               
+
+           }
+
+          
+    }
+
+
 
    	
    }

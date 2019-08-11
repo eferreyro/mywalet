@@ -5,6 +5,10 @@
   require_once("../config/conexion.php");
   //llamo al modelo Categorías
   require_once("../modelos/Categorias.php");
+  //llamo al modelo Producto
+  require_once("../modelos/Productos.php");
+
+  $productos = new Producto();
 
   $categorias = new Categoria();
 
@@ -179,6 +183,9 @@
               //edita el estado de la categoria
 		      $categorias->editar_estado($_POST["id_categoria"],$_POST["est"]);
 		
+		      //edita el estado del producto
+
+			$productos->editar_estado_producto_por_categoria($_POST["id_categoria"],$_POST["est"]);
 		     
 	        } 
 
