@@ -29,8 +29,8 @@
            $conectar= parent::conexion();
            parent::set_names();
 
-           $sql="insert into proveedor
-           values(null,?,?,?,?,?,now(),?,?);";
+           $sql="INSERT INTO proveedor
+           VALUES(null,?,?,?,?,?,NOW(),?,?);";
 
           
             $sql=$conectar->prepare($sql);
@@ -55,7 +55,7 @@
             $conectar= parent::conexion();
             parent::set_names();
 
-            $sql="select * from proveedor where cedula=?";
+            $sql="SELECT * FROM proveedor WHERE cedula=?";
 
             $sql=$conectar->prepare($sql);
 
@@ -72,7 +72,7 @@
 
           //$output = array();
 
-          $sql="select * from proveedor where id_proveedor=?";
+          $sql="SELECT * FROM proveedor WHERE id_proveedor=?";
 
                 $sql=$conectar->prepare($sql);
 
@@ -96,7 +96,7 @@
          $estado=1;
 
           
-        $sql="select * from proveedor where id_proveedor=? and estado=?";
+        $sql="SELECT * FROM proveedor WHERE id_proveedor=? AND estado=?";
 
               $sql=$conectar->prepare($sql);
 
@@ -115,7 +115,7 @@
         	$conectar=parent::conexion();
         	parent::set_names();
 
-        	$sql="update proveedor set 
+        	$sql="UPDATE proveedor SET 
 
              cedula=?,
              razon_social=?,
@@ -124,7 +124,7 @@
              direccion=?,
              estado=?,
              id_usuario=?
-             where 
+             WHERE 
              cedula=?
 
         	";
@@ -153,7 +153,7 @@
 
            $conectar=parent::conexion();
 
-          $sql="select * from proveedor where cedula=? or razon_social=? or correo=?";
+          $sql="SELECT * FROM proveedor WHERE cedula=? OR razon_social=? OR correo=?";
 
            //echo $sql; exit();
 
@@ -187,10 +187,10 @@
         	 	 $estado=0;
         	 }
 
-        	 $sql="update proveedor set 
+        	 $sql="UPDATE proveedor SET 
               
               estado=?
-              where 
+              WHERE 
               id_proveedor=?
 
         	 ";
