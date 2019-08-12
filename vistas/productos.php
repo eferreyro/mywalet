@@ -20,6 +20,13 @@
   require_once("header.php");
 
 ?>
+
+
+    <?php if($_SESSION["productos"]==1)
+     {
+
+     ?>
+
   <!--Contenido-->
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">        
@@ -171,11 +178,8 @@
                   
                      <select class="selectpicker form-control" id="unidad" name="unidad" required>
                       <option value="">-- Seleccione unidad --</option>
-                      <option value="kilo">Kg</option>
-                      <option value="Gramo">Gr</option>
-                      <option value="Onza">Oz</option>
-                      <option value="Litro">Lt</option>
-                      <option value="mililitro">Ml</option>
+                      <option value="kilo">kilo</option>
+                      <option value="Gramo">Gramo</option>
 
                     </select>
 
@@ -192,9 +196,7 @@
                     <select class="selectpicker form-control" id="moneda" name="moneda" required>
                       <option value="">-- Seleccione moneda --</option>
                       <option value="USD$">USD$</option>
-                      <option value="EUR€">EUR€</option>
-                      <option value="ARS$">ARS$</option>
-                      <option value="MEX$">MEX$</option>
+                      <option value="EUR">EUR€</option>
 
                     </select>
 
@@ -217,7 +219,7 @@
                   <label for="" class="col-lg-1 control-label">Stock</label>
 
                   <div class="col-lg-9 col-lg-offset-1">
-                    <input type="text" class="form-control" id="stock" name="stock" placeholder="Stock incrementa cuando registramos compra" disabled>
+                    <input type="text" class="form-control" id="stock" name="stock"  disabled>
                   </div>
               </div>
 
@@ -312,6 +314,15 @@
 </div>
  <!--FIN FORMULARIO VENTANA MODAL-->
 
+  
+  <?php  } else {
+
+       require_once("noacceso.php");
+  }
+   
+  ?><!--CIERRE DE SESSION DE PERMISO -->
+
+
 <?php
 
   require_once("footer.php");
@@ -325,7 +336,7 @@
    
   } else {
 
-        header("Location:".Conectar::ruta()."vistas/index.php");
+        header("Location:".Conectar::ruta()."index.php");
 
   }
 

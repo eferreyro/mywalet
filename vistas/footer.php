@@ -216,7 +216,10 @@
 
 <!-- DataTables -->
 
-<!--<script src="../public/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>-->
+<!--IMPORTANTE: ESTE LINK de abajo (https://cdn.datatables.net/v/dt/.....) ME AYUDA A OCULTAR LOS ULTIMOS CAMPOS Y QUE SE OCULTEN EN UN BOTON DESPEGABLE SUPER EXCELENTE, NO OLVIDAR PONER LA PROPIEDAD RESPONSIVE=TRUE EN LA FUNCION LISTAR() EN JAVASCRIPT (debe ubicarse arriba sino no se muestran los botones para imprimir en excel, pdf etc)-->
+
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/r-2.2.0/sl-1.2.3/datatables.min.js"></script>
 
    <script src="../public/datatables/jquery.dataTables.min.js"></script>
     <script src="../public/datatables/dataTables.buttons.min.js"></script>
@@ -262,6 +265,7 @@
   <!--LIBRERIA DE MENSAJE MODAL-->
 <script src="js/bootbox.min.js"></script>
 
+
 <!--BOOTSTRAP FILE STYLE-->
 
 <script src="../public/bootstrap-filestyle/src/bootstrap-filestyle.min.js"></script>
@@ -284,13 +288,34 @@
       /*dateFormat: 'dd-mm-yy',
       autoclose: true*/
        format: "dd/mm/yyyy",
-        /*clearBtn: true,*/
-        language: "es",
+        /*clearBtn: true,
+        language: "es",*/
         autoclose: true,
         /*keyboardNavigation: false,
         todayHighlight: true*/
     })
 
+
+    /*EN EL SEGUNDO CAMPO DEL ARCHIVO CONSULTAR COMPRAS FECHA*/
+       $('#datepicker2').datepicker({
+      /*dateFormat: 'dd-mm-yy',
+      autoclose: true*/
+       format: "dd/mm/yyyy",
+        clearBtn: true,
+        language: "es",
+        autoclose: true,
+        keyboardNavigation: false,
+        todayHighlight: true
+    })
+
 </script>
+
+
+<!--GRAFICA COMPRAS Y VENTAS-->
+
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+
 </body>
 </html>

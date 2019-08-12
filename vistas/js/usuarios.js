@@ -15,10 +15,25 @@ var tabla;
 
 	 //cambia el titulo de la ventana modal cuando se da click al boton
 	$("#add_button").click(function(){
+
+		     //habilita los campos cuando se agrega un registro nuevo ya que cuando se editaba un registro asociado entonces aparecia deshabilitado los campos
+			 $("#cedula").attr('disabled', false);
+             $("#nombre").attr('disabled', false);
+             $("#apellido").attr('disabled', false);
+			
 			
 			$(".modal-title").text("Agregar Usuario");
 		
 	  });
+
+
+	   //Mostramos los permisos
+	   /*en este caso NO se envia un id_usuario ya que se va agregar un 
+	   usuario nuevo, solo se enviaría cuando se edita y ahí se enviaría el id_usuario
+	   que se está editando*/
+	   $.post("../ajax/usuario.php?op=permisos&id_usuario=",function(r){
+	        $("#permisos").html(r);
+	 });
 
   }
 
@@ -38,6 +53,8 @@ var tabla;
 	$('#direccion').val("");
 	$('#estado').val("");
 	$('#id_usuario').val("");
+	//limpia los checkbox
+	$('input:checkbox').removeAttr('checked');
    }
 
     //function listar 
@@ -137,24 +154,66 @@ var tabla;
 
          data = JSON.parse(data);
 
-                $("#usuarioModal").modal("show");
-                $("#cedula").val(data.cedula);
-                $('#nombre').val(data.nombre);
-				$('#apellido').val(data.apellido);
-				$('#cargo').val(data.cargo);
-				$('#usuario').val(data.usuario);
-				$('#password1').val(data.password1);
-				$('#password2').val(data.password2);
-				$('#telefono').val(data.telefono);
-				$('#email').val(data.correo);
-				$('#direccion').val(data.direccion);
-				$('#estado').val(data.estado);
-				$('.modal-title').text("Editar Usuario");
-				$('#id_usuario').val(id_usuario);
-				$('#action').val("Edit");
+                 //si existe la cedula_relacion entonces tiene relacion con otras tablas
+				if(data.cedula_relacion){
 
+						$('#usuarioModal').modal('show');
+
+						$('#cedula').val(data.cedula_relacion);
+						
+						//desactiva el campo
+		                $("#cedula").attr('disabled', 'disabled');
+
+						$('#nombre').val(data.nombre);
+						
+						//desactiva el campo
+		                $("#nombre").attr('disabled', 'disabled');
+
+						$('#apellido').val(data.apellido);
+
+						//desactiva el campo
+		                $("#apellido").attr('disabled', 'disabled');
+
+						$('#cargo').val(data.cargo);
+						$('#usuario').val(data.usuario);
+						$('#password1').val(data.password1);
+						$('#password2').val(data.password2);
+						$('#telefono').val(data.telefono);
+						$('#email').val(data.correo);
+						$('#direccion').val(data.direccion);
+						$('#estado').val(data.estado);
+						$('.modal-title').text("Editar Usuario");
+						$('#id_usuario').val(id_usuario);
+
+				  } else{
+
+                        $('#usuarioModal').modal('show');
+						$('#cedula').val(data.cedula);
+						$("#cedula").attr('disabled', false);
+						$('#nombre').val(data.nombre);
+						$("#nombre").attr('disabled', false);
+						$('#apellido').val(data.apellido);
+                        $("#apellido").attr('disabled', false);
+                        $('#cargo').val(data.cargo);
+						$('#usuario').val(data.usuario);
+						$('#password1').val(data.password1);
+						$('#password2').val(data.password2);
+						$('#telefono').val(data.telefono);
+						$('#email').val(data.correo);
+						$('#direccion').val(data.direccion);
+						$('#estado').val(data.estado);
+						$('.modal-title').text("Editar Usuario");
+						$('#id_usuario').val(id_usuario);
+                        
+
+				   }		
 
 		});
+
+         //muestra los checkbox en la ventana modal de usuarios
+		$.post("../ajax/usuario.php?op=permisos&id_usuario="+id_usuario,function(r){
+	        $("#permisos").html(r);
+	    });
 
    }
 
@@ -233,6 +292,38 @@ var tabla;
 		 });//bootbox
 
        } 
+
+
+        //ELIMINAR USUARIO
+
+	 function eliminar(id_usuario){
+
+   
+	    bootbox.confirm("¿Está Seguro de eliminar el usuario?", function(result){
+		if(result)
+		{
+
+				$.ajax({
+					url:"../ajax/usuario.php?op=eliminar_usuario",
+					method:"POST",
+					data:{id_usuario:id_usuario},
+
+					success:function(data)
+					{
+						//alert(data);
+						$("#resultados_ajax").html(data);
+						$("#usuario_data").DataTable().ajax.reload();
+					}
+				});
+
+		      }
+
+		 });//bootbox
+
+
+   }
+
+
 
   init();
 

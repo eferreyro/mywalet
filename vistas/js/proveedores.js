@@ -21,6 +21,10 @@ function init(){
     
     //cambia el titulo de la ventana modal cuando se da click al boton
 	$("#add_button").click(function(){
+
+		    //habilita los campos cuando se agrega un registro nuevo ya que cuando se editaba un registro asociado entonces aparecia deshabilitado los campos
+			 $("#razon").attr('disabled', false);
+             $("#cedula").attr('disabled', false);
 			
 			$(".modal-title").text("Agregar Proveedor");
 		
@@ -139,17 +143,49 @@ function mostrar(cedula_proveedor)
 
 		   console.log(data);
 		
-				$('#proveedorModal').modal('show');
-				$('#cedula').val(cedula_proveedor);
-				$('#razon').val(data.proveedor);
-				$('#telefono').val(data.telefono);
-				$('#email').val(data.correo);
-				$('#direccion').val(data.direccion);
-				$('#datepicker').val(data.fecha);
-				$('#estado').val(data.estado);
-				$('.modal-title').text("Editar Proveedor");
-				$('#cedula_proveedor').val(cedula_proveedor);
-			
+				 //si existe la cedula_relacion entonces tiene relacion con otras tablas
+				if(data.cedula_relacion){
+
+		
+						$('#proveedorModal').modal('show');
+						$('#cedula').val(cedula_proveedor);
+
+						//desactiva el campo
+		                $("#cedula").attr('disabled', 'disabled');
+						
+						$('#razon').val(data.proveedor);
+						
+						//desactiva el campo
+		                $("#razon").attr('disabled', 'disabled');
+						
+						$('#telefono').val(data.telefono);
+						$('#email').val(data.correo);
+						$('#direccion').val(data.direccion);
+						$('#datepicker').val(data.fecha);
+						$('#estado').val(data.estado);
+						$('.modal-title').text("Editar Proveedor");
+						$('#cedula_proveedor').val(cedula_proveedor);
+
+			     } else {
+
+				     	$('#proveedorModal').modal('show');
+						$('#cedula').val(cedula_proveedor);
+					    $("#cedula").attr('disabled', false);
+
+						$('#razon').val(data.proveedor);
+					    $("#razon").attr('disabled', false);
+
+					    $('#telefono').val(data.telefono);
+						$('#email').val(data.correo);
+						$('#direccion').val(data.direccion);
+						$('#datepicker').val(data.fecha);
+						$('#estado').val(data.estado);
+						$('.modal-title').text("Editar Proveedor");
+						$('#cedula_proveedor').val(cedula_proveedor);
+
+
+ 
+			    }
 				
 		});
         
@@ -357,6 +393,37 @@ function listar_en_compras(){
 		})
 	
     }
+
+
+    //ELIMINAR PROVEEDOR
+
+	 function eliminar(id_proveedor){
+
+   
+	    bootbox.confirm("¿Está Seguro de eliminar el proveedor?", function(result){
+		if(result)
+		{
+
+				$.ajax({
+					url:"../ajax/proveedor.php?op=eliminar_proveedor",
+					method:"POST",
+					data:{id_proveedor:id_proveedor},
+
+					success:function(data)
+					{
+						//alert(data);
+						$("#resultados_ajax").html(data);
+						$("#proveedor_data").DataTable().ajax.reload();
+					}
+				});
+
+		      }
+
+		 });//bootbox
+
+
+   }
+
 
 
 

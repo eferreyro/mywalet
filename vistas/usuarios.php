@@ -14,6 +14,15 @@
   require_once("header.php");
 
 ?>
+
+
+
+<?php if($_SESSION["usuarios"]==1)
+     {
+
+     ?>
+
+
   <!--Contenido-->
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">        
@@ -154,9 +163,31 @@
               <option value="1" selected>Activo</option>
               <option value="0">Inactivo</option>
            </select>
-                 
+
+
+              
+           <br/><br/>
+
+         <!--LISTA DE PERMISOS-->
+
+               <div class="form-group">
+                  <label for="" class="col-lg-1 control-label">Permisos</label>
+
+                    <div class="col-lg-6">
+
+                      <ul style="list-style:none;" id="permisos">
+                   
+                  
+                      </ul>
+                      
+                    </div>
 
                </div>
+
+           <!--FIN LISTA DE PERMISOS-->
+                 
+
+        </div>
 
 
                <div class="modal-footer">
@@ -182,6 +213,17 @@
       </div>
 
     </div>
+
+     
+     
+  <?php  } else {
+
+       require("noacceso.php");
+  }
+   
+  ?>--><!--CIERRE DE SESSION DE PERMISO -->
+
+
 <?php
 
   require_once("footer.php");
@@ -195,7 +237,7 @@
    
   } else {
 
-        header("Location:".Conectar::ruta()."vistas/index.php");
+        header("Location:".Conectar::ruta()."index.php");
 
   }
 

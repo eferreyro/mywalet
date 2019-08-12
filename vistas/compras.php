@@ -5,7 +5,9 @@
 
     if(isset($_SESSION["id_usuario"])){
 
-    
+     require_once("../modelos/Compras.php");
+     
+      $compra = new Compras();
     
 ?>
 
@@ -14,6 +16,13 @@
 <?php require_once("header.php");?>
 
 <!-- FIN DEL HEADER - LIBRERIAS -->
+
+
+
+  <?php if($_SESSION["compras"]==1)
+     {
+
+     ?>
 
 
   <!-- Content Wrapper. Contains page content -->
@@ -70,10 +79,10 @@
 
 
                <div class="form-group">
-                  <label for="" class="col-lg-3 control-label">Número Venta</label>
+                  <label for="" class="col-lg-3 control-label">Número Compra</label>
 
                   <div class="col-lg-9">
-            <input type="text" class="form-control" id="numero_compra" name="numero_compra" value=""  readonly>
+            <input type="text" class="form-control" id="numero_compra" name="numero_compra" value="<?php $codigo=$compra->numero_compra();?>"  readonly>
                   </div>
               </div>
 
@@ -328,9 +337,17 @@
     <?php require_once("modal/lista_productos_modal.php");?>
 
 
+   
+  <?php  } else {
+
+       require("noacceso.php");
+  }
   
+   
+  ?><!--CIERRE DE SESSION DE PERMISO -->
 
    <?php require_once("footer.php");?>
+
 
    
     <!--AJAX PROVEEDORES-->
@@ -344,7 +361,7 @@
    
   } else {
 
-         header("Location:".Conectar::ruta()."vistas/index.php");
+         header("Location:".Conectar::ruta()."index.php");
 
      }
 

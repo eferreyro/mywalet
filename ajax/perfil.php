@@ -46,6 +46,7 @@
           $output["cedula"] = $row["cedula"];
           $output["nombre"] = $row["nombres"];
           $output["apellido"] = $row["apellidos"];
+          
           $output["usuario_perfil"] = $row["usuario"];
           $output["password1"] = $row["password"];
           $output["password2"] = $row["password2"];

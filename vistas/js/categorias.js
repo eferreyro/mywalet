@@ -15,6 +15,9 @@ function init(){
     
     //cambia el titulo de la ventana modal cuando se da click al boton
 	$("#add_button").click(function(){
+
+		     //habilita los campos cuando se agrega un registro nuevo ya que cuando se editaba un registro asociado entonces aparecia deshabilitado los campos
+			 $("#categoria").attr('disabled', false);
 			
 			$(".modal-title").text("Agregar Categoría");
 		
@@ -48,7 +51,7 @@ function listar()
 	    buttons: [		          
 		            'copyHtml5',
 		            'excelHtml5',
-		            //'csvHtml5',
+		            'csvHtml5',
 		            'pdf'
 		        ],
 		"ajax":
@@ -127,12 +130,36 @@ function mostrar(id_categoria)
 		 //alert(data.cedula);
 		
 			
-				$('#categoriaModal').modal('show');
-				$('#categoria').val(data.categoria);
-				$('#estado').val(data.estado);
-				$('.modal-title').text("Editar Categoría");
-				$('#id_categoria').val(id_categoria);
-				$('#action').val("Edit");
+				 //si existe la categoria_id entonces tiene relacion con otras tablas
+				if(data.categoria_id){
+
+				        $('#categoriaModal').modal('show');
+						$('#categoria').val(data.categoria);
+
+						//desactiva el campo
+		                $("#categoria").attr('disabled', 'disabled');
+						
+						$('#estado').val(data.estado);
+						$('.modal-title').text("Editar Categoría");
+						$('#id_categoria').val(id_categoria);
+						
+
+
+			    } else{
+
+                        $('#categoriaModal').modal('show');
+						$('#categoria').val(data.categoria);
+
+						//desactiva el campo
+		                $("#categoria").attr('disabled', false);
+						
+						$('#estado').val(data.estado);
+						$('.modal-title').text("Editar Categoría");
+						$('#id_categoria').val(id_categoria);
+						
+
+			    }
+				
 				
 				
 		});
@@ -218,6 +245,40 @@ function guardaryeditar(e)
 
 
    }
+
+   //ELIMINAR CATEGORIA
+
+	 function eliminar(id_categoria){
+
+	     //IMPORTANTE: asi se imprime el valor de una funcion
+         
+         //alert(categoria_id);
+
+   
+	    bootbox.confirm("¿Está Seguro de eliminar la categoría?", function(result){
+		if(result)
+		{
+
+				$.ajax({
+					url:"../ajax/categoria.php?op=eliminar_categoria",
+					method:"POST",
+					data:{id_categoria:id_categoria},
+
+					success:function(data)
+					{
+						//alert(data);
+						$("#resultados_ajax").html(data);
+						$("#categoria_data").DataTable().ajax.reload();
+					}
+				});
+
+		      }
+
+		 });//bootbox
+
+
+   }
+
 
 
  init();
